@@ -1,57 +1,47 @@
-from typing import Any, Optional
-
-
-class Node:
-    """ Класс, который описывает узел связного списка. """
-
-    def __init__(self, value: Any, next_: Optional["Node"] = None):
-        """
-        Создаем новый узел для односвязного списка
-        :param value: Любое значение, которое помещено в узел
-        :param next_: следующий узел, если он есть
-        """
-        self.value = value
-
-        self.next = None
-        self.set_next(next_)
-
-    def __repr__(self) -> str:
-        return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
-
-    def __str__(self) -> str:
-        return str(self.value)
-
-    def is_valid(self, node: Any) -> None:
-        if not isinstance(node, (type(None), Node)):
-            raise TypeError
-
-    def set_next(self, next_: Optional["Node"] = None) -> None:
-        self.is_valid(next_)
-        self.next = next_
-
-
-def linked_nodes(left_node: Node, right_node: Optional["Node"] = None) -> None:
-    """
-    Функция, которая связывает между собой два узла.
-
-    :param left_node: Левый или предыдущий узел
-    :param right_node: Правый или следующий узел
-    """
-    left_node.set_next(right_node)
+from typing import Optional
+from node import Node
 
 
 class DoubleLinkedNode(Node):
-    ...
+    def __init__(self, value = None, next_ = None, prev_ = None):
+        super().__init__(value, next_)
+        self.prev = prev_
+    @property
+    def prev(self):
+        return self._prev
+
+    @prev.setter
+    def prev(self, prev_: Optional["DoubleLinkedNode"]):
+        self._prev = prev_
+
+    def __repr__(self) -> str:
+        next_repr: str = str(None) \
+            if self.next is None \
+            else f"DoubleLinkedNode({self.next.value}, {None}, {None})"
+        prev_repr: str = str(None) \
+            if self.prev is None \
+            else f"DoubleLinkedNode({self.prev.value}, {None}, {None})"
+        return f"DoubleLinkedNode({self.value}, {next_repr}, {prev_repr})"
 
 
 if __name__ == "__main__":
-    list_nodes = [Node(value) for value in range(5)]
-    print(list_nodes)
+    """
+    Тестирование класса DoubleLinkedNode
+    """
 
-    # алгоритм, для связки узлов между собой в списке
-    for i in range(len(list_nodes) - 1):
-        current_node = list_nodes[i]
-        next_node = list_nodes[i + 1]
-        linked_nodes(current_node, next_node)
-    print(list_nodes)
+    node_1 = DoubleLinkedNode(1)
+    node_2 = DoubleLinkedNode(2)
+    node_3 = DoubleLinkedNode(3)
+    node_4 = DoubleLinkedNode(4)
 
+    node_1.next = node_2
+    node_2.next = node_3
+    node_2.prev = node_1
+    node_3.next = node_4
+    node_3.prev = node_2
+    node_4.prev = node_3
+
+    print(repr(node_1))
+    print(repr(node_2))
+    print(repr(node_3))
+    print(repr(node_4))
