@@ -37,6 +37,6 @@ if __name__ == '__main__':
     """
     first_node = Node(10)
     second_node = Node(20)
-    print(first_node.__repr__())
-    print(second_node.__repr__())
+    print(repr(first_node))
+    print(repr(second_node))
 
