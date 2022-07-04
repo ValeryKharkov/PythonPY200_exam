@@ -24,6 +24,7 @@ class DoubleLinkedNode(Node):
             else f"DoubleLinkedNode({self.prev.value}, {None}, {None})"
         return f"DoubleLinkedNode({self.value}, {next_repr}, {prev_repr})"
 
+
 if __name__ == "__main__":
     """
     Тестирование класса DoubleLinkedNode
