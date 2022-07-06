@@ -1,5 +1,5 @@
 from typing import Optional
-from node import Node
+from Node_and_DoubleLinkedNode import Node
 
 
 class DoubleLinkedNode(Node):
