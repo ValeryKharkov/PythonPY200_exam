@@ -132,15 +132,16 @@ if __name__ == '__main__':
     print("Проверка вхождения числа 5 в связный список")
     print(5 in linked_list)
 
-    print(linked_list)
-    del linked_list[1]
-    print(linked_list)
-    del linked_list[1]
-    print(linked_list)
-    del linked_list[0]
-    print(linked_list)
-
-    ll = LinkedList(list_)
-    print(ll)
-    ll.append(100)
-    print(ll)
+    print(repr(linked_list))
+    # print(linked_list)
+    # del linked_list[1]
+    # print(linked_list)
+    # del linked_list[1]
+    # print(linked_list)
+    # del linked_list[0]
+    # print(linked_list)
+    #
+    # ll = LinkedList(list_)
+    # print(ll)
+    # ll.append(100)
+    # print(ll)

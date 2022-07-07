@@ -1,4 +1,3 @@
-from collections.abc import MutableSequence  # абстрактный класс определяет общий интерфейс для набора подклассов.
 from typing import Any, Optional
 from Node_and_DoubleLinkedNode import DoubleLinkedNode
 from LinkedList import LinkedList
@@ -24,9 +23,23 @@ class DoubleLinkedList(LinkedList):
 
 
 if __name__ == '__main__':
-    list_ = [1, 2, 3]
+    dll = DoubleLinkedList([1, 2, 3, 4, 5])
 
+    dll.append(6)
+    print(dll)
 
-    ll = DoubleLinkedList([1, 2, 3, 4, 5])
+    dll.insert(3, 20)
+    print(dll)
 
-    print(ll)
+    dll_1 = DoubleLinkedNode([10, 100, 1000])
+    dll_2 = DoubleLinkedNode([20, 200, 2000])
+    dll_3 = DoubleLinkedNode([30, 300, 3000])
+
+    dll_1.next = dll_2
+    dll_2.next = dll_3
+    dll_2.prev = dll_1
+    dll_3.prev = dll_2
+
+    print(repr(dll_1))
+    print(repr(dll_2))
+    print(repr(dll_3))

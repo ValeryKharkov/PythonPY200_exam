@@ -15,6 +15,7 @@ class DoubleLinkedNode(Node):
     def prev(self, prev_: Optional["DoubleLinkedNode"]):
         self._prev = prev_
     # Переопределяем магический метод __repr__ для модификации вывода результата
+
     def __repr__(self) -> str:
         next_repr: str = str(None) \
             if self.next is None \
@@ -47,9 +48,9 @@ if __name__ == "__main__":
     print(repr(node_3))
     print(repr(node_4))
 
-    print(str(node_1))
-    print(str(node_2))
-    print(str(node_3))
-    print(str(node_4))
+    # print(str(node_1))
+    # print(str(node_2))
+    # print(str(node_3))
+    # print(str(node_4))
 
 
