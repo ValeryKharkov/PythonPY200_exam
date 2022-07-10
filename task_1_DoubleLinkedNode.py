@@ -1,5 +1,5 @@
 from typing import Optional
-from node import Node
+from Node_and_DoubleLinkedNode import Node
 
 
 class DoubleLinkedNode(Node):
@@ -15,6 +15,7 @@ class DoubleLinkedNode(Node):
     def prev(self, prev_: Optional["DoubleLinkedNode"]):
         self._prev = prev_
     # Переопределяем магический метод __repr__ для модификации вывода результата
+
     def __repr__(self) -> str:
         next_repr: str = str(None) \
             if self.next is None \
@@ -23,6 +24,7 @@ class DoubleLinkedNode(Node):
             if self.prev is None \
             else f"DoubleLinkedNode({self.prev.value}, {None}, {None})"
         return f"DoubleLinkedNode({self.value}, {next_repr}, {prev_repr})"
+
 
 if __name__ == "__main__":
     """
@@ -46,9 +48,9 @@ if __name__ == "__main__":
     print(repr(node_3))
     print(repr(node_4))
 
-    print(str(node_1))
-    print(str(node_2))
-    print(str(node_3))
-    print(str(node_4))
+    # print(str(node_1))
+    # print(str(node_2))
+    # print(str(node_3))
+    # print(str(node_4))
 
 
